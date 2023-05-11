@@ -21,7 +21,7 @@ export class RegisterUseCase {
     email,
     password,
   }: RegisteruseCaseRequest): Promise<RegisterUseCaseResponse> {
-    const pass_hash = await hash(password, 6)
+    const password_hash = await hash(password, 6)
 
     const userWithSameEmail = await this.usersRepository.findByEmail(email)
 
@@ -32,7 +32,7 @@ export class RegisterUseCase {
     const user = await this.usersRepository.create({
       name,
       email,
-      password_hash: pass_hash,
+      password_hash,
     })
 
     return {
