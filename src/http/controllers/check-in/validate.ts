@@ -3,7 +3,7 @@ import { FastifyRequest, FastifyReply } from 'fastify'
 
 import { z } from 'zod'
 
-export async function validade(request: FastifyRequest, reply: FastifyReply) {
+export async function validate(request: FastifyRequest, reply: FastifyReply) {
   const validadeCheckInsParamsSchema = z.object({
     checkInId: z.string().uuid(),
   })
